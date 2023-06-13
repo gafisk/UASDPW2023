@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 16</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .kiri {
+      width: 70%;
+      background-image: url(bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .kanan {
+      width: 30%;
+      background-color: #FDF5E6;
+    }
+
+    .box-left {
+      margin-top: 25vh;
+      text-align: center;
+    }
+
+    .box-left h1 {
+      color: #FDF5E6;
+      font-size: 80px;
+    }
+
+    .box-right {
+      text-align: center;
+      margin-top: 37vh;
+      font-family: sans-serif;
+    }
+
+    .box-right h2 {
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .box {
+      background-color: #333333;
+      height: 230px;
+      margin: 20px;
+      border-radius: 20px;
+      padding-top: 30px;
+      box-shadow: 0 5px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .form-group input {
+      height: 30px;
+      width: 200px;
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    input[type="submit"] {
+      background-color: blue;
+      color: white;
+      border-radius: 30px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: rgb(2, 218, 218);
+      cursor: pointer;
+    }
+
+    input[type="reset"] {
+      background-color: rgb(169, 31, 31);
+      color: white;
+      border-radius: 30px;
+    }
+
+    input[type="reset"]:hover {
+      background-color: red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="kiri">
+      <div class="box-left">
+        <img src="logo1.png" alt="Logo" width="150">
+        <h1>Sistem Informasi <br> Perpustakaan</h1>
+      </div>
+    </div>
+    <div class="kanan">
+      <div class="box-right">
+        <div class="box">
+          <h2>FORM LOGIN</h2>
+          <div class="form-group">
+            <label for="">Username</label>
+            <input type="text" name="username" id="username">
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="text" name="Password" id="password">
+          </div>
+          <div class="form-group">
+            <input type="submit" onclick="submit()">
+            <input type="reset" value="Reset" onclick="reset()">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function submit() {
+    username = document.getElementById("username").value;
+    password = document.getElementById("password").value;
+    if (username == "" && password == "") {
+      alert("Inputan tidak boleh kosong");
+    }
+    if (username != "" && password != "") {
+      if (username == "admin" && password == "admin123") {
+        var nilai = "GALIH RESTU BAIHAQI";
+        localStorage.setItem('user', nilai);
+        window.location.href = "dashboard.html";
+      } else {
+        var nilai = username.toUpperCase();
+        localStorage.setItem('user', nilai);
+        window.location.href = "dashboard.html";
+      }
+    }
+  }
+  function reset() {
+    username = document.getElementById("username").value = "";
+    password = document.getElementById("password").value = "";
+  }
+
+</script>
+
+</html>
